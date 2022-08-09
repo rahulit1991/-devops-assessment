@@ -6,6 +6,11 @@ pipeline {
         kind: Pod
         spec:
           containers:
+          - name: kubectl
+            image: bitnami/kubectl:latest
+            command:
+            - cat
+            tty: true          
           - name: docker
             image: docker:latest
             command:
@@ -24,7 +29,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        container('nodejs') {
+        container('docker') {
           git branch: 'master', changelog: false, poll: false, url: 'https://github.com/rahulit1991/-devops-assessment.git'
         }
       }
