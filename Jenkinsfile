@@ -61,7 +61,8 @@ pipeline {
           sh 'kubectl apply -f deployment.yaml'
         }
       }     
-  }
+   }
+  }  
     post {
       always {
         container('docker') {
@@ -69,5 +70,4 @@ pipeline {
       }
       }
     }
-}
 }
