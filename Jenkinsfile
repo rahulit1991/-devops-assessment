@@ -55,6 +55,12 @@ pipeline {
       }
     }
      }
+    stage('Deploy kubernetes') {
+      steps {
+        container('kubectl') {
+          sh 'kubectl apply -f deployment.yaml'
+        }
+      }     
   }
     post {
       always {
