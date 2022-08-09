@@ -44,7 +44,9 @@ pipeline {
     stage('Login-Into-Docker') {
       steps {
         container('docker') {
-          sh 'docker login -u rahulit1991 -p Ridhu@2412'
+          withCredentials([string(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+          sh 'docker login -u $USERNAME -p $PASSWORD'
+          }
       }
     }
     }
