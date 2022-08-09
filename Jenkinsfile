@@ -6,11 +6,6 @@ pipeline {
         kind: Pod
         spec:
           containers:
-          - name: maven
-            image: maven:alpine
-            command:
-            - cat
-            tty: true
           - name: docker
             image: docker:latest
             command:
@@ -58,7 +53,7 @@ pipeline {
     stage('Deploy kubernetes') {
       steps {
         container('kubectl') {
-          sh 'kubectl apply -f deployment.yaml'
+          sh 'kubectl apply -f ${WORKSPACE}/deployment.yaml'
         }
       }     
    }
