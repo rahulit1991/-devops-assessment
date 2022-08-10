@@ -63,6 +63,7 @@ pipeline {
           withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://kubernetes.default']) {
           sh 'kubectl apply -f deployment.yaml'
         }
+        }
       }     
    }
   }  
