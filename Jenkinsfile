@@ -1,8 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'k8-cluster-0'
-    }
+  agent k8-cluster-0 {
     kubernetes {
       yaml '''
         apiVersion: v1
