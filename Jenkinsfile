@@ -1,5 +1,5 @@
 pipeline {
-  agent k8-cluster-0 {
+  agent {
     kubernetes {
       yaml '''
         apiVersion: v1
@@ -58,6 +58,9 @@ pipeline {
     }
      }
     stage('Deploy kubernetes') {
+      agent {
+        label "k8-cluster-0"
+      }
       steps {
         container('kubectl') {       
           sh 'kubectl apply -f deployment.yaml'
