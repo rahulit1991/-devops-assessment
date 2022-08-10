@@ -8,9 +8,9 @@ pipeline {
           serviceAccountName: jenkins-admin
           containers:
           - name: kubectl
-            image: bitnami/kubectl:latest
+            image: rancher/kubectl
             command:
-            - sleep
+            - cat
             tty: true          
           - name: docker
             image: docker:latest
