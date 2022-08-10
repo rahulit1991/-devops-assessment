@@ -60,7 +60,7 @@ pipeline {
     stage('Deploy kubernetes') {
       steps {
         container('kubectl') {
-          sh 'kubectl apply -f ${WORKSPACE}/deployment.yaml'
+          kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "030eb973-948c-45b2-8fd2-6fd95b55c25e")
         }
       }     
    }
