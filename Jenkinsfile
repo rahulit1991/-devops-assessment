@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    kubernetes {
+    k8-cluster-0 {
       yaml '''
         apiVersion: v1
         kind: Pod
