@@ -8,7 +8,7 @@ pipeline {
           serviceAccountName: jenkins-admin
           containers:
           - name: kubectl
-            image: rancher/kubectl:latest
+            image: rancher/kubectl:v1.23.7
             command:
             - cat
             tty: true          
