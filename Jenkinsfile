@@ -9,6 +9,8 @@ pipeline {
           containers:
           - name: kubectl
             image: bitnami/kubectl:latest
+            command:
+            - sleep
             tty: true          
           - name: docker
             image: docker:latest
