@@ -57,6 +57,7 @@ pipeline {
       }
     }
      }
+  node(kube-agent) {   
     stage('Deploy kubernetes') {
       agent {
         label "k8-cluster-0"
@@ -67,6 +68,7 @@ pipeline {
         }
       }     
    }
+  }
   }  
     post {
       always {
