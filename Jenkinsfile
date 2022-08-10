@@ -5,12 +5,11 @@ pipeline {
         apiVersion: v1
         kind: Pod
         spec:
-          serviceAccountName: jenkins-admin
           containers:
           - name: kubectl
-            image: rancher/kubectl:v1.23.7
+            image: bitnami/kubectl:latest
             command:
-            - sleep
+            - cat
             tty: true          
           - name: docker
             image: docker:latest
@@ -62,7 +61,7 @@ pipeline {
       steps {
         container('kubectl') {
           sh 'kubectl apply -f ${WORKSPACE}/deployment.yaml'
-        }  
+        }
       }     
    }
   }  
