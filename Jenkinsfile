@@ -59,9 +59,7 @@ pipeline {
      }
     stage('Deploy kubernetes') {
       steps {
-        container('kubectl') {
           sh 'kubectl apply -f ${WORKSPACE}/deployment.yaml'
-        }
       }     
    }
   }  
