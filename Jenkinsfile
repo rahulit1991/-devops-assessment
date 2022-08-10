@@ -5,6 +5,7 @@ pipeline {
         apiVersion: v1
         kind: Pod
         spec:
+          serviceAccountName: jenkins-admin
           containers:
           - name: kubectl
             image: bitnami/kubectl:latest
@@ -60,7 +61,7 @@ pipeline {
     stage('Deploy kubernetes') {
       steps {
         container('kubectl') {
-          kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "030eb973-948c-45b2-8fd2-6fd95b55c25e")
+          sh 'kubectl apply -f ${WORKSPACE}/deployment.yaml'
         }
       }     
    }
