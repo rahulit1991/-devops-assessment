@@ -9,8 +9,6 @@ pipeline {
           containers:
           - name: kubectl
             image: rancher/kubectl:v1.23.7
-            command:
-            - cat
             tty: true          
           - name: docker
             image: docker:latest
