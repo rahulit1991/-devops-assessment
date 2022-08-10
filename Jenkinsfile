@@ -63,7 +63,8 @@ pipeline {
         container('kubectl') {
           withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://10.43.0.1']) {
           sh 'kubectl apply -f ${WORKSPACE}/deployment.yaml'
-        }
+         }
+        }  
       }     
    }
   }  
